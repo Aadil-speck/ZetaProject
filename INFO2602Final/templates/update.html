@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block title %}Update{% endblock %}
+{% block page %}
+      <a href="#" class="brand-logo">Update</a>
+      <ul id="nav-mobile" class="right">
+        <li><a href="/">Go Back</a></li>
+      </ul>
+{% endblock %}
+
+{{ super() }}
+
+{% block content %}
+<div class="container">
+
+  <form class="col" method="POST" action="/updateLog">
+
+      <h1>Updating Record {{id}}</h1>
+      
+      <div class="row">
+          <input type="hidden" name="id" value="{{id}}" class="input-field col s12">
+          <label>Row ID</label>
+      </div>
+
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Placeholder" name="studentId" id="stdid" type="text" class="validate">
+          <label for="first_name">Id Number</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <select name="stream" class="input-field col s12">
+          <option value="1">Stream 1</option>
+          <option value="2">Stream 2</option>
+          <option value="3">Stream 3</option>
+        </select>
+        <label>Materialize Select</label>
+      </div>
+
+      <div class="row">
+          <button class="btn waves-effect waves-light col s4"" type="submit">Submit
+            <i class="material-icons right">send</i>
+          </button>
+      </div>
+
+    </form>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+</script>
+
+{% endblock %}
